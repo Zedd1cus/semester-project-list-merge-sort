@@ -1,4 +1,4 @@
-from src.merge_sort import LinkedList
+from src.linked_list_merge_sort import LinkedList
 
 
 def print_linked_list(head):

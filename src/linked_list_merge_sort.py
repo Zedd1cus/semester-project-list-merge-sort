@@ -84,8 +84,3 @@ class LinkedList:
             fast = fast.next.next
 
         return slow
-
-
-
-
-
