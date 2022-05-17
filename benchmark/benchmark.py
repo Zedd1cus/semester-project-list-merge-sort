@@ -8,10 +8,12 @@ def fill_dynamic_array(new_array: List[int], array_from_data: List[int]) -> List
     new_array = array_from_data
     return new_array
 
+
 def fill_linked_list(linklist: LinkedList, array_from_data: List[int]) -> LinkedList:
     for elem in array_from_data:
         linklist.append(elem)
     return linklist
+
 
 def bench_dynamic_array(path: str) -> float:
     dyn_array = []
@@ -20,7 +22,7 @@ def bench_dynamic_array(path: str) -> float:
         fill_dynamic_array(dyn_array, arr)
     time_lst = time.time()
     dyn_array = dynamic_array_merge_sort(dyn_array)
-    return (time.time() - time_lst)*1000
+    return (time.time() - time_lst) * 1000
 
 
 def bench_linked_list(path: str) -> float:
@@ -30,6 +32,6 @@ def bench_linked_list(path: str) -> float:
         fill_linked_list(linklist, arr)
     time_lst = time.time()
     linklist.merge_sort(linklist.head)
-    return (time.time() - time_lst)*1000
+    return (time.time() - time_lst) * 1000
 
 
