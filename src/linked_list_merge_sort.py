@@ -1,86 +1,73 @@
+# A Linked List Node
 class Node:
-    def __init__(self, data):
+    def __init__(self, data=None, next=None):
         self.data = data
-        self.next = None
+        self.next = next
 
 
-class LinkedList:
-    def __init__(self):
-        self.head = None
+def printList(head):
+    ptr = head
+    while ptr:
+        print(ptr.data, end=' —> ')
+        ptr = ptr.next
+    print('None')
 
-    # push new value to linked list
-    # using append method
-    def append(self, new_value):
 
-        # Allocate new node
-        new_node = Node(new_value)
+def sorted_merge(a, b):
+    if a is None:
+        return b
+    elif b is None:
+        return a
 
-        # if head is None, initialize it to new node
-        if self.head is None:
-            self.head = new_node
-            return
-        curr_node = self.head
-        while curr_node.next is not None:
-            curr_node = curr_node.next
+    if a.data <= b.data:
+        result = a
+        result.next = sorted_merge(a.next, b)
+    else:
+        result = b
+        result.next = sorted_merge(a, b.next)
 
-        # Append the new node at the end
-        # of the linked list
-        curr_node.next = new_node
+    return result
 
-    def sorted_merge(self, a, b):
-        result = None
 
-        # Base cases
-        if a is None:
-            return b
-        if b is None:
-            return a
+def front_back_split(source):
+    if source is None or source.next is None:
+        return source, None
 
-        # pick either a or b and recursion
-        if a.data <= b.data:
-            result = a
-            result.next = self.sorted_merge(a.next, b)
-        else:
-            result = b
-            result.next = self.sorted_merge(a, b.next)
-        return result
+    (slow, fast) = (source, source.next)
 
-    def merge_sort(self, h):
+    while fast:
 
-        # Base case if head is None
-        if h is None or h.next is None:
-            return h
-
-        # get the middle of the list
-        middle = self.get_middle(h)
-        next_to_middle = middle.next
-
-        # set the next of middle node to None
-        middle.next = None
-
-        # Apply mergeSort on left list
-        left = self.merge_sort(h)
-
-        # Apply mergeSort on right list
-        right = self.merge_sort(next_to_middle)
-
-        # Merge the left and right lists
-        sortedlist = self.sorted_merge(left, right)
-        return sortedlist
-
-    # Utility function to get the middle
-    # of the linked list
-    @staticmethod
-    def get_middle(head):
-        if head is None:
-            return head
-
-        slow = head
-        fast = head
-
-        while (fast.next is not None and
-               fast.next.next is not None):
+        fast = fast.next
+        if fast:
             slow = slow.next
-            fast = fast.next.next
+            fast = fast.next
 
-        return slow
+    ret = (source, slow.next)
+    slow.next = None
+
+    return ret
+
+
+def merge_sort(head):
+    if head is None or head.next is None:
+        return head
+
+    front, back = front_back_split(head)
+
+    front = merge_sort(front)
+    back = merge_sort(back)
+
+    return sorted_merge(front, back)
+
+
+if __name__ == "__main__":
+    some_array = [1, 17, 4, 15, 20, 2]
+
+    head = None
+    for i in some_array:
+        head = Node(i, head)
+
+    head = merge_sort(head)
+
+    printList(head)
+
