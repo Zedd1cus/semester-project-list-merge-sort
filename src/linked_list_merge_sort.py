@@ -1,16 +1,7 @@
-# A Linked List Node
 class Node:
     def __init__(self, data=None, next=None):
         self.data = data
         self.next = next
-
-
-def printList(head):
-    ptr = head
-    while ptr:
-        print(ptr.data, end=' —> ')
-        ptr = ptr.next
-    print('None')
 
 
 def sorted_merge(a, b):
@@ -58,16 +49,4 @@ def merge_sort(head):
     back = merge_sort(back)
 
     return sorted_merge(front, back)
-
-
-if __name__ == "__main__":
-    some_array = [1, 17, 4, 15, 20, 2]
-
-    head = None
-    for i in some_array:
-        head = Node(i, head)
-
-    head = merge_sort(head)
-
-    printList(head)
 
