@@ -1,4 +1,4 @@
-def dynamic_array_merge_sort(array):
+def dynamic_array_merge_sort(array): # передает ссылку на массив, а не копирует его
     if len(array) > 1:
 
         #  r is the point where the array is divided into two subarrays
@@ -34,3 +34,8 @@ def dynamic_array_merge_sort(array):
             array[k] = M[j]
             j += 1
             k += 1
+
+if __name__ == '__main__':
+    arr = [9, 4, 7, 2, 90, 123, 67]
+    dynamic_array_merge_sort(arr)
+    print(arr)
