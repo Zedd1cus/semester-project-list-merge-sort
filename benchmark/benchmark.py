@@ -3,27 +3,20 @@ from src.dynamic_array_merge_sort import dynamic_array_merge_sort
 from typing import List
 import time
 
-
-def fill_dynamic_array(new_array: List[int], array_from_data: List[int]) -> List[int]:
-    new_array = array_from_data
-    return new_array
-
-
 def fill_linked_list(some_array: List[int]):
     head = None
     for i in some_array:
         head = Node(i, head)
-        return head
+    return head
 
 
 def bench_dynamic_array(path: str) -> float:
-    dyn_array = []
     with open(path) as data:
-        arr = [int(line) for line in data.readlines()]
-        fill_dynamic_array(dyn_array, arr)
+        dyn_arr = [int(line) for line in data.readlines()]
     time_lst = time.time()
-    dyn_array = dynamic_array_merge_sort(dyn_array)
-    return (time.time() - time_lst) * 100000000000000
+    dynamic_array_merge_sort(dyn_arr)
+    time2 = time.time()
+    return (time2 - time_lst) * 100000000000000
 
 
 def bench_linked_list(path: str) -> float:
@@ -41,6 +34,5 @@ def bench_linked_list_arr(array) -> float:
     head = merge_sort(head)
     return (time.time() - time_lst) * 100000000000000
 
-
 if __name__ ==  '__main__':
-    print(bench_linked_list('dataset/data_of_linked_list/01/2900.txt'))
+    print(bench_dynamic_array('C:/Users/ninza/Projects/semester-project-list-merge-sort/dataset/data_of_dynamic_array/01/2500.txt'))

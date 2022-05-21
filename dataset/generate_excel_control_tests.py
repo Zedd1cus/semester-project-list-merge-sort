@@ -58,7 +58,7 @@ if __name__ == '__main__':
     path_array = 'data_of_dynamic_array'
     path_list = 'data_of_linked_list'
 
-    arr_of_number_of_elements = [100, 500, 900, 1300, 1700, 2100, 2500, 2900]
+    arr_of_number_of_elements = [100, 500, 900, 1300, 1700, 2100, 2500, 100_000]
     arr_of_data_numbers = ['01', '02', '03', '04', '05']
 
     ws['A1'] = 'КОЛИЧЕСТВО ЭЛЕМЕНТОВ'
