@@ -16,7 +16,7 @@ def bench_dynamic_array(path: str) -> float:
     time_lst = time.time()
     dynamic_array_merge_sort(dyn_arr)
     time2 = time.time()
-    return (time2 - time_lst) * 100000000000000
+    return (time2 - time_lst) * 1000
 
 
 def bench_linked_list(path: str) -> float:
@@ -26,7 +26,7 @@ def bench_linked_list(path: str) -> float:
     head = fill_linked_list(arr)
     time_lst = time.time()
     head = merge_sort(head, link_len)
-    return (time.time() - time_lst) * 100000000000000
+    return (time.time() - time_lst) * 1000
 
 
 if __name__ ==  '__main__':
