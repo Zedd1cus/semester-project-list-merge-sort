@@ -34,5 +34,7 @@ def make_txt_files(some_arr: list) -> None:
 
 
 arr_for_elements = [100, 5100, 10100, 15100, 20100, 25100]
-make_dirs()
-make_txt_files(arr_for_elements)
+
+if __name__ == '__main__':
+    make_dirs()
+    make_txt_files(arr_for_elements)

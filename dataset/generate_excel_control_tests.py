@@ -1,6 +1,6 @@
 from openpyxl import Workbook
 from benchmark.benchmark import bench_linked_list, bench_dynamic_array
-
+from generate_txt_dataset import arr_for_elements
 # /dataset/data_of_dynamic_array/01/100.txt
 
 def get_value(number_of_elements: int, data_number: str) -> int:
@@ -58,7 +58,7 @@ if __name__ == '__main__':
     path_array = 'data_of_dynamic_array'
     path_list = 'data_of_linked_list'
 
-    arr_of_number_of_elements = [100, 500, 900, 1300, 1700, 2100, 2500, 100_000]
+    arr_of_number_of_elements = arr_for_elements
     arr_of_data_numbers = ['01', '02', '03', '04', '05']
 
     ws['A1'] = 'КОЛИЧЕСТВО ЭЛЕМЕНТОВ'
