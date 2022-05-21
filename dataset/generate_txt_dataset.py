@@ -33,6 +33,6 @@ def make_txt_files(some_arr: list) -> None:
             make_data(i, j, some_arr)
 
 
-arr_for_elements = [100, 500, 900, 1300, 1700, 2100, 2500, 100000]
+arr_for_elements = [100, 5100, 10100, 15100, 20100, 25100]
 make_dirs()
 make_txt_files(arr_for_elements)
